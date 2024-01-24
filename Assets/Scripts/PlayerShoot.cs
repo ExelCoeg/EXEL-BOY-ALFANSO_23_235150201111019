@@ -25,8 +25,9 @@ public class PlayerShoot : MonoBehaviour
         print(player.Angle());
         float horizontalDirection = player.sr.flipX == false ? 1 : -1;
         float verticalDirection = player.VerticalDirection() ? 1 : -1;
-        
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, new Quaternion(0,0,player.Angle(),0));
+
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        bullet.transform.Rotate(0, 0, player.Angle());
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         
         rb.velocity = new Vector2(bulletSpeed * horizontalDirection * player.isHorizontal(), bulletSpeed * verticalDirection * player.isVertical());
