@@ -5,9 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    Score score;
-
-   
+    InfoStatus infoStatus;
+    public bool afterWave;
+    public bool paused;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,11 +19,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        score = GetComponent<Score>();
+        infoStatus = GetComponent<InfoStatus>();
     }
 
     public void IncreaseScore(int amount)
     {
-        score.currentScore += amount;
+        infoStatus.currentScore += amount;
     }
+    
+    
 }
