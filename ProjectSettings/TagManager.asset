@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Bullet
   - Enemy
+  - WaveSpawner
+  - MiniBoss
   layers:
   - Default
   - TransparentFX

@@ -7,9 +7,7 @@ public class EnemyCombat : MonoBehaviour
 {
     public float timer;
 
-    
-    float attackDelay = 2f;
-    [SerializeField]
+    float attackDelay = 1f;
     float attackRange = 0.25f;
     public Transform attackPoint;
 
@@ -37,7 +35,13 @@ public class EnemyCombat : MonoBehaviour
         else if(hitEnemies.name == "Player")
         {
             print("attack");
-            hitEnemies.GetComponent<PlayerHealth>().currentHealth--;
+            if(gameObject.tag == "MiniBoss" ) {
+                hitEnemies.GetComponent<PlayerHealth>().currentHealth -= 2;
+            }
+            else
+            {
+                hitEnemies.GetComponent<PlayerHealth>().currentHealth--;
+            }
         }
         
     }

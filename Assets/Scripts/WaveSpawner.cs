@@ -1,105 +1,85 @@
+
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using TMPro;
+
 public class WaveSpawner : MonoBehaviour
+
 {
     public static WaveSpawner instance;
-    public List<Enemy> enemies = new List<Enemy>();
-    
-    public List<GameObject> enemiesToSpawn = new List<GameObject>();
-
-    public List<Transform> spawnLocations = new List<Transform>();
-    public int waveDuration;
-    private float waveTimer;
-    private float spawnInterval;
-    private float spawnTimer;
-    public int currWave;
     [SerializeField]
-    private int waveValue;
+    GameObject[] enemyPrefabs;
+    [SerializeField]
+    GameObject miniBoss;
+    [SerializeField]
+    Transform[] spawnLocations;
+    [SerializeField]
+    float spawnInterval = 3f;
 
-    
-    
+    public float spawnTimer;
+    public float waveTimer;
+
+    [SerializeField]
+    float waveDuration = 10f;
+    public int currWave = 0;
+
+
     private void Awake()
     {
         if(instance == null)
         {
-            instance =  this;
+            instance = this;
         }
         else
         {
             Destroy(gameObject);
         }
-        
     }
-    //Start is called before the first frame update
-    void Start()
+    
+    private void Update()
     {
-        GenerateWave(); 
+        spawnTimer += Time.deltaTime;
+        waveTimer -= Time.deltaTime;
+
+        if (waveTimer >= 0)
+        {
+            if(spawnTimer >= spawnInterval )
+            {
+                GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+                Instantiate(enemyToSpawn, spawnLocations[Random.Range(0, spawnLocations.Length)].position, Quaternion.identity);
+
+                
+                spawnTimer = 0;
+            }
+            
+        }
+        else if(waveTimer < 0)
+        {
+            currWave++;
+            if(currWave % 3 == 0)
+            {
+                if(spawnInterval == 1.2)
+                {
+                    spawnInterval -= 0.01f;
+                }
+                else
+                {
+                    spawnInterval -= 0.3f;
+                }
+            }
+            if(currWave == 10)
+            {
+                SpawnMiniBoss();
+            }
+            
+            waveTimer = waveDuration;
+        }
+    }
+    public void SpawnMiniBoss()
+    {
+
+        Instantiate(miniBoss, spawnLocations[Random.Range(0,spawnLocations.Length)].position, Quaternion.identity);
     }
   
-    
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (spawnTimer <= 0)
-        {
-            if(enemiesToSpawn.Count > 0)
-            {
-                Instantiate(enemiesToSpawn[0], spawnLocations[Random.Range(0,spawnLocations.Count)].position, Quaternion.identity);
-                enemiesToSpawn.RemoveAt(0);
-                spawnTimer = spawnInterval;
-            }
-            else
-            {
-                waveTimer = 0;
-                GameManager.instance.afterWave = true;
-                
-            }
-        }
-        else
-        {
-            spawnTimer -= Time.fixedDeltaTime;
-            waveTimer -= Time.fixedDeltaTime;
-        }
-    }
-    public void GenerateWave()
-    {
-        waveValue = currWave * 2;
-        GenerateEnemies();
-
-        spawnInterval = waveDuration / enemiesToSpawn.Count;
-        waveTimer = waveDuration;
-
-    }
-    public void GenerateEnemies()
-    {
-        List<GameObject> generatedEnemies = new List<GameObject>();
-        while (waveValue > 0)
-        {
-            int randEnemyId = Random.Range(0, enemies.Count);
-            int randEnemyCost = enemies[randEnemyId].cost;
-
-            if(waveValue-randEnemyCost >= 0)
-            {
-                generatedEnemies.Add(enemies[randEnemyId].enemyPrefab);
-                waveValue -= randEnemyCost;
-            }
-            else if (waveValue <= 0)
-            {
-                break;
-            }
-        }
-        enemiesToSpawn.Clear();
-        enemiesToSpawn = generatedEnemies;
-    }
-    
-
-}
-
-[System.Serializable]
-public class Enemy
-{
-    public GameObject enemyPrefab;
-    public int cost;
 }

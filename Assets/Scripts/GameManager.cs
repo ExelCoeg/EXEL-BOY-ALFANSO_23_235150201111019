@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     InfoStatus infoStatus;
-    public bool afterWave;
+    
     public bool paused;
     // Start is called before the first frame update
     void Awake()
@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
         }
         infoStatus = GetComponent<InfoStatus>();
     }
-
+    
     public void IncreaseScore(int amount)
     {
         infoStatus.currentScore += amount;

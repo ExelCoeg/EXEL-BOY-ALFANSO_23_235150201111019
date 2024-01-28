@@ -21,7 +21,7 @@ public class AfterDeath : StateMachineBehaviour
         GameManager.instance.IncreaseScore(100);
         Destroy(animator.gameObject);
     }
-
+  
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
