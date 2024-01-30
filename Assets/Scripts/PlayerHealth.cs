@@ -43,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
         }
         if(currentHealth <= 0)
         {
+            GameManager.instance.playerDead = true;           
             Destroy(gameObject);
         }
     }

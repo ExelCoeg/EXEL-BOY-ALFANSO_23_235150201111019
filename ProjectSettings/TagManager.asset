@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - WaveSpawner
   - MiniBoss
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -17,10 +18,10 @@ TagManager:
   - UI
   - Player
   - Enemy
-  - 
-  - 
-  - 
-  - 
+  - MiniBoss
+  - Boss
+  - Border
+  - Bullet
   - 
   - 
   - 
@@ -56,4 +57,10 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 1066631895
+    locked: 0
+  - name: Boss
+    uniqueID: 3612339077
+    locked: 0
+  - name: Border
+    uniqueID: 1173323873
     locked: 0

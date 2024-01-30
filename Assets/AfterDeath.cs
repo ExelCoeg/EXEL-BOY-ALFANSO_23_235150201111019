@@ -18,7 +18,7 @@ public class AfterDeath : StateMachineBehaviour
 
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameManager.instance.IncreaseScore(100);
+        ScoreManager.instance.IncreaseScore(100);
         Destroy(animator.gameObject);
     }
   

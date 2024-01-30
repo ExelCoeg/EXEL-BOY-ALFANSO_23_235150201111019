@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using UnityEngine.Android;
 using UnityEngine.UI;
@@ -16,11 +15,11 @@ public class Pause : MonoBehaviour
     public void GamePause()
     {
         pauseMenu.gameObject.SetActive(true);
-        Time.timeScale = 0f;
+        GameManager.instance.Pause();
     }
     public void GameResume()
     {
         pauseMenu.gameObject.SetActive(false);
-        Time.timeScale = 1f;
+        GameManager.instance.Resume();
     }
 }
