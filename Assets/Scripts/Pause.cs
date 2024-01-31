@@ -1,25 +1,44 @@
 
 using UnityEngine;
 using UnityEngine.Android;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 public class Pause : MonoBehaviour
 {
-    public GameObject pauseMenu;
+    [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject optionsMenu;
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.instance.paused)
         {
             GamePause();
         }
     }
     public void GamePause()
     {
-        pauseMenu.gameObject.SetActive(true);
+        FindObjectOfType<AudioManager>().Pause("BGM");
+        pauseMenu.SetActive(true);
         GameManager.instance.Pause();
     }
     public void GameResume()
     {
-        pauseMenu.gameObject.SetActive(false);
+        FindObjectOfType<AudioManager>().UnPause("BGM");
+        pauseMenu.SetActive(false);
         GameManager.instance.Resume();
+    }
+    public void GameOptions()
+    {
+        pauseMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+    }
+    public void MainMenu()
+    {
+        GameManager.instance.MainMenu();
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

@@ -21,6 +21,8 @@ public class AfterDeathBoss : StateMachineBehaviour
     {
         WaveManager.instance.ClearEnemies();
         GameManager.instance.victory = true;
+        FindObjectOfType<AudioManager>().StopPlayer("BGM");
+        
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -31,13 +31,15 @@ public class EnemyCombat : MonoBehaviour
         }
         else if(hitEnemies.name == "Player")
         {
-            print("attack");
+            print("attacked");
             if(gameObject.tag == "MiniBoss" ) {
                 hitEnemies.GetComponent<PlayerHealth>().currentHealth -= 2;
             }
             else
             {
                 hitEnemies.GetComponent<PlayerHealth>().currentHealth--;
+                hitEnemies.GetComponent<Animator>().SetTrigger("hurt");
+                FindObjectOfType<AudioManager>().Play("Hurt");
             }
         }
         

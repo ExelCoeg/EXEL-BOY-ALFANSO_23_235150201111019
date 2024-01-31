@@ -5,7 +5,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public int currentScore;
-    public int hiScore;
+    public int hiScore = 0;
     void Awake()
     {
         if(instance == null)
@@ -19,11 +19,14 @@ public class ScoreManager : MonoBehaviour
     }
     private void Update()
     {
-        
+        if(currentScore > hiScore)
+        {
+            PlayerPrefs.SetInt("Highscore", currentScore);
+        }
     }
-
     public void IncreaseScore(int amount)
     {
         currentScore += amount;
+        
     }
 }

@@ -26,6 +26,7 @@ public class WaveManager : MonoBehaviour
     private void Start()
     {
         GameManager.instance.Resume();
+        FindObjectOfType<AudioManager>().Play("BGM");
     }
     private void Awake()
     {
@@ -45,8 +46,6 @@ public class WaveManager : MonoBehaviour
             if (!GameManager.instance.victory)
             {
                 
-               
-                
                 spawnTimer += Time.deltaTime;
                 waveTimer -= Time.deltaTime;
 
@@ -65,17 +64,18 @@ public class WaveManager : MonoBehaviour
                 else if (waveTimer < 0)
                 {
                     currWave++;
-                    if (currWave % 3 == 0)
+                    if (currWave % 3 == 0 && currWave!= 15)
                     {
                         spawnInterval -= 0.3f;
                     }
-                    if (currWave >= 10)
+                    if (currWave >= 10 && currWave % 2 == 0  && currWave < 15)
                     {
                         SpawnMiniBoss();
                     }
                     if (currWave == 15)
                     {
                         SpawnBoss();
+                        spawnInterval = 2f;
                     }
                     if (currWave >= 16)
                     {
@@ -104,6 +104,11 @@ public class WaveManager : MonoBehaviour
         {
             Destroy(enemy);
         }
+        GameObject[] miniBosses = GameObject.FindGameObjectsWithTag("MiniBoss");
+        foreach (GameObject miniBoss in miniBosses) {
+            Destroy(miniBoss);
+        }
+        
     }
     
 }

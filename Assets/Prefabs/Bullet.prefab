@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6752d13c9bd0fe4458fe11825b7a758d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disappearTime: 2
+  disappearTime: 1
 --- !u!70 &7423872298114479772
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -25,6 +25,7 @@ public class rocketTargetBehaviour : MonoBehaviour
         }
         sr.color = tmpColor;
         yield return waitAfterFadeIn;
+        FindObjectOfType<AudioManager>().Play("RocketExplode");
         Explode();
         yield return null;
     }
@@ -37,9 +38,11 @@ public class rocketTargetBehaviour : MonoBehaviour
             if(hit.name == "Player")
             {
                 hit.gameObject.GetComponent<PlayerHealth>().currentHealth -= 3;
+                FindObjectOfType<AudioManager>().Play("Hurt");
             }
             
         }
+       
         Destroy(gameObject);
     }
 }

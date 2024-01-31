@@ -64,3 +64,6 @@ TagManager:
   - name: Border
     uniqueID: 1173323873
     locked: 0
+  - name: Crosshair
+    uniqueID: 129485423
+    locked: 0

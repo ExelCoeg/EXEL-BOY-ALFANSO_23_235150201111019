@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 public class PlayerHealth : MonoBehaviour
 {
@@ -18,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentHealth> numOfHealth)
+        if(currentHealth > numOfHealth)
         {
             currentHealth = numOfHealth;
         }

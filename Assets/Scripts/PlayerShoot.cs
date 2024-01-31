@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
    
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !GameManager.instance.paused)
         {
             Shoot();
         }
@@ -23,5 +23,6 @@ public class PlayerShoot : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
         rb.AddForce(firePoint.up * bulletSpeed, ForceMode2D.Impulse);
+        FindObjectOfType<AudioManager>().Play("Shoot");
     }
 }

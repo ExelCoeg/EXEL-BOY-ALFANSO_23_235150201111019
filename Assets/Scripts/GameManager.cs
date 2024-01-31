@@ -59,4 +59,5 @@ public class GameManager : MonoBehaviour
         paused = false;
         Time.timeScale = 1f;
     }
+    
 }

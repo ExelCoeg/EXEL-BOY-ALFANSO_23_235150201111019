@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,10 +8,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Camera cam;
     public Transform spawnPoint;
-    Vector2 movement;
     Vector2 mousePos;
-
-    
 
     private void Update()
     {

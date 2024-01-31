@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class AfterDeath : StateMachineBehaviour
@@ -19,6 +18,7 @@ public class AfterDeath : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ScoreManager.instance.IncreaseScore(100);
+        FindObjectOfType<AudioManager>().Play("Explode");
         Destroy(animator.gameObject);
     }
   
