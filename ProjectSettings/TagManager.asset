@@ -22,7 +22,7 @@ TagManager:
   - Boss
   - Border
   - Bullet
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -60,6 +60,9 @@ TagManager:
     locked: 0
   - name: Boss
     uniqueID: 3612339077
+    locked: 0
+  - name: Grenade
+    uniqueID: 2545900013
     locked: 0
   - name: Border
     uniqueID: 1173323873

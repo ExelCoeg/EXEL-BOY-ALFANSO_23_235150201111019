@@ -7,8 +7,7 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletSpeed = 20f;
-   
-   
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !GameManager.instance.paused)
@@ -25,4 +24,6 @@ public class PlayerShoot : MonoBehaviour
         rb.AddForce(firePoint.up * bulletSpeed, ForceMode2D.Impulse);
         FindObjectOfType<AudioManager>().Play("Shoot");
     }
+
+   
 }

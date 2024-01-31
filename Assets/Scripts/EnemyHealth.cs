@@ -17,7 +17,9 @@ public class EnemyHealth : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
+            print(gameObject.name + " health is " + currentHealth);
             anim.SetBool(dead_parameter, true);
+            
         }
     }
 
