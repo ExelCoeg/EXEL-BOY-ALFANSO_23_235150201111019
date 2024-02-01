@@ -52,8 +52,6 @@ public class WaveManager : MonoBehaviour
                     {
                         GameObject enemyToSpawn = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
                         Instantiate(enemyToSpawn, spawnLocations[Random.Range(0, spawnLocations.Length)].position, Quaternion.identity);
-
-
                         spawnTimer = 0;
                     }
                 }
