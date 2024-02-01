@@ -60,16 +60,16 @@ public class WaveManager : MonoBehaviour
                     currWave++;
                     if (currWave % 3 == 0 && currWave!= 15)
                     {
-                        spawnInterval -= 0.3f;
+                        spawnInterval -= 0.35f;
                     }
                     if (currWave >= 10 && currWave % 2 == 0  && currWave < 15)
-                    {
+                    {   
                         SpawnMiniBoss();
                     }
                     if (currWave == 15)
                     {
                         SpawnBoss();
-                        spawnInterval = 2f;
+                        spawnInterval = 1.7f;
                     }
                     if (currWave >= 16)
                     {

@@ -25,14 +25,15 @@ public class GrenadeBehaviour : MonoBehaviour
     private void Update()
     {
         
-    Collider2D hit = Physics2D.OverlapCircle(transform.position, 0.75f);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, 1f);
         if (hit.tag == "Boss" || hit.tag == "Enemy" || hit.tag == "MiniBoss")
         {
             grenadeStop = true;
         }
         if (grenadeStop)
         {
-            transform.position = transform.position;
+            print("grenade stop");
+            transform.position = Vector2.MoveTowards(transform.position, hit.gameObject.transform.position, 0);
             grenadeTimer += Time.deltaTime;
             if(grenadeTimer >= grenadeTimeToExplode)
             {
@@ -63,8 +64,5 @@ public class GrenadeBehaviour : MonoBehaviour
         }
         anim.SetTrigger("explode");
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, explodeRadius);
-    }
+  
 }

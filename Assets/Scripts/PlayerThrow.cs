@@ -8,7 +8,7 @@ public class PlayerThrow : MonoBehaviour
    
     public float grenadeSpeed = 10f;
 
-    float grenadeDelay = 1f;
+    float grenadeDelay = 2f;
     float grenadeTimer;
     private void Start()
     {

@@ -11,15 +11,25 @@ public class AudioSlider : MonoBehaviour
     public AudioMixer mixer;
     private void Start()
     {
-        if (PlayerPrefs.HasKey("musicVolume") || PlayerPrefs.HasKey("sfxVolume"))
+        if (PlayerPrefs.HasKey("musicVolume"))
         {
             LoadVolume();
+
         }
         else
         {
             SetMusicVolume();
-            SetSFXVolume();
+            
         }
+        if (PlayerPrefs.HasKey("sfxVolume"))
+        {
+            LoadSFX();
+        }
+        else
+        {
+            SetMusicVolume();
+        }
+       
     }
     public void SetMusicVolume()
     {
@@ -37,7 +47,12 @@ public class AudioSlider : MonoBehaviour
     private void LoadVolume()
     {
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
-        SFXSlider.value = PlayerPrefs.GetFloat("sfxVolume");
         SetMusicVolume();
+    }
+    private void LoadSFX()
+    {
+        SFXSlider.value = PlayerPrefs.GetFloat("sfxVolume");
+        float volume = SFXSlider.value;
+        SetSFXVolume();
     }
 }

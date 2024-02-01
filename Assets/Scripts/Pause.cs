@@ -7,7 +7,6 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
     [SerializeField] GameObject optionsMenu;
-    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && !GameManager.instance.paused)
@@ -34,7 +33,6 @@ public class Pause : MonoBehaviour
     {
         GameManager.instance.MainMenu();
     }
-
     public void Quit()
     {
         Application.Quit();
