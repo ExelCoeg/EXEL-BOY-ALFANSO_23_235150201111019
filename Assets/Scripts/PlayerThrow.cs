@@ -17,14 +17,12 @@ public class PlayerThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         grenadeTimer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.G) && !GameManager.instance.paused && grenadeTimer >= grenadeDelay)
         {
             ThrowGrenade();
             grenadeTimer = 0;
         }
-        
     }
 
     void ThrowGrenade()

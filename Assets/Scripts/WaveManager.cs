@@ -22,7 +22,6 @@ public class WaveManager : MonoBehaviour
     [SerializeField]
     float waveDuration = 10f;
     public int currWave = 0;
-
     private void Start()
     {
         GameManager.instance.Resume();
@@ -45,10 +44,8 @@ public class WaveManager : MonoBehaviour
         {
             if (!GameManager.instance.victory)
             {
-                
                 spawnTimer += Time.deltaTime;
                 waveTimer -= Time.deltaTime;
-
                 if (waveTimer >= 0)
                 {
                     if (spawnTimer >= spawnInterval)
@@ -59,7 +56,6 @@ public class WaveManager : MonoBehaviour
 
                         spawnTimer = 0;
                     }
-
                 }
                 else if (waveTimer < 0)
                 {
@@ -81,8 +77,6 @@ public class WaveManager : MonoBehaviour
                     {
                         currWave = 15;
                     }
-                
-            
                     waveTimer = waveDuration;
                 }
             }
@@ -108,7 +102,5 @@ public class WaveManager : MonoBehaviour
         foreach (GameObject miniBoss in miniBosses) {
             Destroy(miniBoss);
         }
-        
     }
-    
 }

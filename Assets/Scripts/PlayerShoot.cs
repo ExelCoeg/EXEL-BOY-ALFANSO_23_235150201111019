@@ -7,12 +7,19 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public float bulletSpeed = 20f;
-    
+   
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !GameManager.instance.paused)
+        if (!GameManager.instance.paused)
         {
-            Shoot();
+            if (!GetComponent<PlayerMelee>().onMelee)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    print("player is shooting");
+                    Shoot();
+                }
+            }
         }
     }
     public void Shoot()

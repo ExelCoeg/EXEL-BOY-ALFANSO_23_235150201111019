@@ -9,13 +9,11 @@ public class GameManager : MonoBehaviour
     public bool paused = false;
     public bool victory = false;
     public bool playerDead = false;
-
+   
 
     private int currentSceneIndex;
-    InfoStatus infoStatus;
+  
     
-    //InfoStatus infoStatus;
-    // Start is called before the first frame update
     void Awake()
     {
         if(instance == null)
@@ -26,7 +24,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        infoStatus = GetComponent<InfoStatus>();
+        //infoStatus = GetComponent<InfoStatus>();
     }
     private void Update()
     {
@@ -50,12 +48,14 @@ public class GameManager : MonoBehaviour
     }
     public void Pause()
     {
+        FindObjectOfType<AudioManager>().Pause("BGM");
         paused = true;
         Time.timeScale = 0f;
         
     }
     public void Resume()
     {
+        FindObjectOfType<AudioManager>().UnPause("BGM");
         paused = false;
         Time.timeScale = 1f;
     }

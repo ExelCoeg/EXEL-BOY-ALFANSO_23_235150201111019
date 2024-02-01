@@ -17,13 +17,11 @@ public class Pause : MonoBehaviour
     }
     public void GamePause()
     {
-        FindObjectOfType<AudioManager>().Pause("BGM");
         pauseMenu.SetActive(true);
         GameManager.instance.Pause();
     }
     public void GameResume()
     {
-        FindObjectOfType<AudioManager>().UnPause("BGM");
         pauseMenu.SetActive(false);
         GameManager.instance.Resume();
     }
