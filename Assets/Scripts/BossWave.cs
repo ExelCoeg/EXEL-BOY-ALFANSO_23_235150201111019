@@ -20,12 +20,12 @@ public class BossWave : MonoBehaviour
         
         WaitForSeconds waitBetweenAttacks = new WaitForSeconds(1f);
         WaitForSeconds waitBetweenSpawnRocketsWave = new WaitForSeconds(4f);
-        int spawnRocketsWave = 5;
+        int spawnRocketsWave = 20;
         // bangalore ult type attack
         while (spawnRocketsWave > 0) // how many times the rocketfall wave will happen
         {
             WaitForSeconds waitBetweenSpawningRockets = new WaitForSeconds(0.25f);
-            int randomManyRockets = 10;
+            int randomManyRockets = 20;
 
             for (int rocket = 0; rocket < randomManyRockets; rocket++)
             { // spawning how much rockets to fall 

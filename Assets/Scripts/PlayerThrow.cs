@@ -8,7 +8,7 @@ public class PlayerThrow : MonoBehaviour
    
     public float grenadeSpeed = 10f;
 
-    float grenadeDelay = 2f;
+    float grenadeDelay = 5f;
     float grenadeTimer;
     private void Start()
     {
@@ -31,4 +31,5 @@ public class PlayerThrow : MonoBehaviour
 
         FindObjectOfType<AudioManager>().Play("PinPullGrenade");
     }
+    
 }

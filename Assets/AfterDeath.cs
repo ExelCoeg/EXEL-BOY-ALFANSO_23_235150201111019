@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class AfterDeath : StateMachineBehaviour
 {
@@ -18,6 +19,7 @@ public class AfterDeath : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         ScoreManager.instance.IncreaseScore(100);
+        animator.gameObject.GetComponent<RandomWeaponDrops>().InstantiateWeapon(animator.gameObject.transform.position);
         FindObjectOfType<AudioManager>().Play("Explode");
         Destroy(animator.gameObject);
     }

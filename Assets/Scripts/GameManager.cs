@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //infoStatus = GetComponent<InfoStatus>();
+        
     }
     private void Update()
     {

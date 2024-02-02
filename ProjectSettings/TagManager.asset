@@ -9,6 +9,8 @@ TagManager:
   - WaveSpawner
   - MiniBoss
   - Boss
+  - Weapon
+  - Shotgun
   layers:
   - Default
   - TransparentFX

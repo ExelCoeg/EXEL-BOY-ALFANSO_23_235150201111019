@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 5952907770509662252}
   - component: {fileID: 6201833646261930619}
   - component: {fileID: 322907027098529761}
+  - component: {fileID: 2893417163553646305}
   m_Layer: 0
   m_Name: MiniBoss
   m_TagString: MiniBoss
@@ -321,3 +322,18 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &2893417163553646305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7598304730813621741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2bce54e2168ea49b38f2902dd5f219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedWeaponPrefab: {fileID: 7970980637959531305, guid: f9dcca1d1015c8e439632742695e155d, type: 3}
+  weapons:
+  - {fileID: 11400000, guid: 95434a8b8adbc23449e5a0776f7db402, type: 2}

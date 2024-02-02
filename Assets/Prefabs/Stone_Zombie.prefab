@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 4366960377790526009}
   - component: {fileID: 2250198354316614288}
   - component: {fileID: 5169332144963707846}
+  - component: {fileID: 5984713541371214811}
   m_Layer: 0
   m_Name: Stone_Zombie
   m_TagString: Enemy
@@ -321,3 +322,18 @@ MonoBehaviour:
   playerLayers:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &5984713541371214811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440692737048811306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f2bce54e2168ea49b38f2902dd5f219, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  droppedWeaponPrefab: {fileID: 7970980637959531305, guid: f9dcca1d1015c8e439632742695e155d, type: 3}
+  weapons:
+  - {fileID: 11400000, guid: 95434a8b8adbc23449e5a0776f7db402, type: 2}

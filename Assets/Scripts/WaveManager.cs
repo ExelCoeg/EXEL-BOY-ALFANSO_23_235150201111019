@@ -58,18 +58,23 @@ public class WaveManager : MonoBehaviour
                 else if (waveTimer < 0)
                 {
                     currWave++;
-                    if (currWave % 3 == 0 && currWave!= 15)
+                    if (currWave < 8)
                     {
-                        spawnInterval -= 0.35f;
+                        spawnInterval -= 0.15f;
                     }
-                    if (currWave >= 10 && currWave % 2 == 0  && currWave < 15)
-                    {   
+                    if(currWave == 10)
+                    {
+                        spawnInterval = 1.1f;
+                    }
+                    if (currWave >= 8 && currWave % 2 == 0  && currWave <= 15)
+                    {
+                        spawnInterval -= 0.2f;
                         SpawnMiniBoss();
                     }
                     if (currWave == 15)
                     {
                         SpawnBoss();
-                        spawnInterval = 1.7f;
+                        spawnInterval = 1.5f;
                     }
                     if (currWave >= 16)
                     {
@@ -78,7 +83,6 @@ public class WaveManager : MonoBehaviour
                     waveTimer = waveDuration;
                 }
             }
-            
         }
     }
     public void SpawnMiniBoss()
